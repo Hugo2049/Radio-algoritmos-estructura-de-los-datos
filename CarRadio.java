@@ -11,6 +11,26 @@ public class CarRadio implements RadioInterface {
         this.emisoraFM = 87.9; // Valor inicial para FM
     }
 
+    public double getEmisoraAM() {
+        return emisoraAM;
+    }
+
+    public void setEmisoraAM(double emisoraAM) {
+        this.emisoraAM = emisoraAM;
+    }
+
+    public double getEmisoraFM() {
+        return emisoraFM;
+    }
+
+    public void setEmisoraFM(double emisoraFM) {
+        this.emisoraFM = emisoraFM;
+    }
+
+    public boolean getEncendido(){
+        return encendido;
+    }
+
     @Override
     public void encender() {
         encendido = true;
