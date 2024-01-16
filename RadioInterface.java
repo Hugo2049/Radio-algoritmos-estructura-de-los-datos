@@ -6,4 +6,6 @@ public interface RadioInterface {
     void cambiarBanda();
     void subirEmisora();
     void bajarEmisora();
+    void guardarEmisoraEnBoton(int numeroBoton);
+    void seleccionarEmisoraEnBoton(int numeroBoton);
 }

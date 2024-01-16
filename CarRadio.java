@@ -3,6 +3,8 @@ public class CarRadio implements RadioInterface {
     private int volumen;
     private double emisoraAM;
     private double emisoraFM;
+    private double[] botonesAM = new double[12];
+    private double[] botonesFM = new double[12];
 
     public CarRadio() {
         this.encendido = false;
@@ -104,6 +106,25 @@ public class CarRadio implements RadioInterface {
                 emisoraFM = 107.9;
             }
             // Lógica adicional si es necesario
+        }
+    }
+
+    @Override
+    public void guardarEmisoraEnBoton(int numeroBoton) {
+        if (encendido && numeroBoton >= 1 && numeroBoton <= 12) {
+            if (emisoraAM >= 530 && emisoraAM <= 1610) {
+                botonesAM[numeroBoton - 1] = emisoraAM;
+            } else if (emisoraFM >= 87.9 && emisoraFM <= 107.9) {
+                botonesFM[numeroBoton - 1] = emisoraFM;
+            }
+        }
+    }
+
+    @Override
+    public void seleccionarEmisoraEnBoton(int numeroBoton) {
+        if (encendido && numeroBoton >= 1 && numeroBoton <= 12) {
+            emisoraAM = botonesAM[numeroBoton - 1];
+            emisoraFM = botonesFM[numeroBoton - 1];
         }
     }
 }
