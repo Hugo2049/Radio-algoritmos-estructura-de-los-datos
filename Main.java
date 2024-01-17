@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * La clase `Main` contiene el método principal que simula la interacción con el radio a través de la consola.
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -19,7 +22,7 @@ public class Main {
             System.out.println("7. Salir");
 
             int opcion = scanner.nextInt();
-
+            // opciones de la interfaz cuando el usuario interactue con el menu
             switch (opcion) {
                 case 1:
                     carRadio.encender();
