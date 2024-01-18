@@ -19,11 +19,13 @@ public class Main {
             System.out.println("3. Avanzar en el dial de las emisoras");
             System.out.println("4. Permite guardar una emisora en uno de los 12 botones");
             System.out.println("5. Permite seleccionar la emisora puesta en un botón");
-            System.out.println("6. Apagar el radio");
-            System.out.println("7. Salir");
+            System.out.println("6. Ajustar volumen");
+            System.out.println("7. Bajar emisora");
+            System.out.println("8. Apagar el radio");
+            System.out.println("9. Salir");
 
             int opcion = scanner.nextInt();
-            // opciones de la interfaz cuando el usuario interactue con el menu
+            
             switch (opcion) {
                 case 1:
                     carRadio.encender();
@@ -50,10 +52,20 @@ public class Main {
                     tablero.mostrarMensaje("Emisora seleccionada desde el botón " + numeroBotonSeleccionar + ".");
                     break;
                 case 6:
+                    System.out.print("Ingrese el nuevo volumen (0-100): ");
+                    int nuevoVolumen = scanner.nextInt();
+                    carRadio.setVolumen(nuevoVolumen);
+                    tablero.mostrarMensaje("Volumen ajustado a: " + nuevoVolumen);
+                    break;
+                case 7:
+                    carRadio.bajarEmisora();
+                    tablero.mostrarMensaje("Bajando la emisora.");
+                    break;
+                case 8:
                     carRadio.apagar();
                     tablero.mostrarMensaje("Radio apagado.");
                     break;
-                case 7:
+                case 9:
                     tablero.mostrarMensaje("Saliendo del simulador de radio. ¡Hasta luego!");
                     scanner.close();
                     System.exit(0);

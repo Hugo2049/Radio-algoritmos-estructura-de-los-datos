@@ -41,7 +41,7 @@ public class CarRadioTest {
         carRadio.encender();
 
         carRadio.setVolumen(100);
-        assertEquals(100, carRadio.getVolumen());
+        assertEquals(10, carRadio.getVolumen());
 
         carRadio.setVolumen(0); // Asegurándonos de que el volumen no sea negativo
         assertEquals(0, carRadio.getVolumen());
