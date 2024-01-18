@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        CarRadio carRadio = new CarRadio();
         Tablero tablero = new Tablero();
+        CarRadio carRadio = new CarRadio(tablero);
+        
 
         System.out.println("Bienvenido al Simulador de Radio");
 

@@ -3,6 +3,11 @@
  * con funcionalidades como encendido, apagado, ajuste de emisoras, volumen, y almacenamiento de emisoras en botones.
  */
 public class CarRadio implements RadioInterface {
+
+   
+    /**  Esta variable se utilizará para interactuar con la clase Tablero */
+    private Tablero tablero;
+
     /** Estado de encendido o apagado del radio */
     private boolean encendido;
 
@@ -24,11 +29,13 @@ public class CarRadio implements RadioInterface {
     /**
      * Constructor que inicializa el radio con valores predeterminados.
      */
-    public CarRadio() {
+    public CarRadio(Tablero tablero) {
         this.encendido = false;
         this.volumen = 0;
         this.emisoraAM = 530; // Valor inicial para AM
         this.emisoraFM = 87.9; // Valor inicial para FM
+        this.tablero = tablero;
+
     }
 
     /**
@@ -78,6 +85,11 @@ public class CarRadio implements RadioInterface {
     public void encender() {
         encendido = true;
         // Lógica adicional si es necesario
+    if (emisoraAM >= 530 && emisoraAM <= 1610) {
+        tablero.mostrarMensaje("Radio encendido. Emisora actual: AM - " + emisoraAM);
+    } else if (emisoraFM >= 87.9 && emisoraFM <= 107.9) {
+        tablero.mostrarMensaje("Radio encendido. Emisora actual: FM - " + emisoraFM);
+    }
     }
 
     /**
@@ -118,8 +130,10 @@ public class CarRadio implements RadioInterface {
         if (encendido) {
             if (emisoraAM <= 1610) {
                 emisoraAM += 10;
+                tablero.mostrarMensaje("Cambiando de AM a FM. Emisora actual: FM - " + emisoraFM);
             } else {
                 emisoraAM = 530;
+                tablero.mostrarMensaje("Cambiando de FM a AM. Emisora actual: AM - " + emisoraAM);
             }
             if (emisoraFM <= 107.9) {
                 emisoraFM += 0.2;

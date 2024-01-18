@@ -3,6 +3,12 @@
  */
 public class CarRadioFactory implements RadioFactory {
 
+    private Tablero tablero; // Agrega un campo para almacenar el objeto Tablero
+
+     // Modifica el constructor para aceptar un objeto Tablero
+     public CarRadioFactory(Tablero tablero) {
+        this.tablero = tablero;
+    }
     /**
      * Crea y devuelve una nueva instancia de la clase `CarRadio`.
      *
@@ -10,6 +16,6 @@ public class CarRadioFactory implements RadioFactory {
      */
     @Override
     public RadioInterface crearRadio() {
-        return new CarRadio();
+        return new CarRadio(tablero);
     }
 }

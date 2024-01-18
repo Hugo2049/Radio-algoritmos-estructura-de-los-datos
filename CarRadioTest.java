@@ -5,7 +5,8 @@ public class CarRadioTest {
 
     @Test
     public void testEncenderApagar() {
-        CarRadio carRadio = new CarRadio();
+        Tablero tablero = new Tablero(); // Crea un objeto Tablero
+        CarRadio carRadio = new CarRadio(tablero);
         assertFalse(carRadio.getEncendido());
         
         carRadio.encender();
@@ -17,7 +18,8 @@ public class CarRadioTest {
 
     @Test
     public void testSubirBajarEmisora() {
-        CarRadio carRadio = new CarRadio();
+        Tablero tablero = new Tablero(); // Crea un objeto Tablero
+        CarRadio carRadio = new CarRadio(tablero);
         carRadio.encender();
 
         double emisoraAMInicial = carRadio.getEmisoraAM();
@@ -34,7 +36,8 @@ public class CarRadioTest {
 
     @Test
     public void testSetVolumen() {
-        CarRadio carRadio = new CarRadio();
+        Tablero tablero = new Tablero(); // Crea un objeto Tablero
+        CarRadio carRadio = new CarRadio(tablero);
         carRadio.encender();
 
         carRadio.setVolumen(100);
